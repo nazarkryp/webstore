@@ -1,0 +1,38 @@
+md-content {
+  height: calc(100vh);
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar).userbar {
+  min-height: 0px;
+  height: 35px;
+  background: black;
+  color: white;
+  padding: 0px 100px 0px 100px;
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar).navbar {
+  padding: 0px 100px 0px 100px;
+  background-color: white;
+  color: black;
+}
+
+.logo {
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  color: black;
+  font-size: 27px;
+}
+
+.userbar > div > div > span {
+  font-size: 12px;
+}
+
+.main-menu li {
+  display: inline;
+}
+
+.main-menu li a {
+  font-size: 20px;
+  padding: 20px;
+  font-weight: lighter;
+}

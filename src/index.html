@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="storeapp">
+
+<head>
+    <title>Store Application</title>
+    <link href="assets/libs/angular-material/angular-material.min.css" rel="stylesheet" />
+    <link href="assets/css/site.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <script src="assets/libs/angular/angular.min.js"></script>
+    <script src="assets/libs/angular-animate/angular-animate.min.js"></script>
+    <script src="assets/libs/angular-aria/angular-aria.min.js"></script>
+    <script src="assets/libs/angular-material/angular-material.min.js"></script>
+    <script src="assets/libs/angular-messages/angular-messages.min.js"></script>
+    <script src="assets/libs/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+</head>
+
+<body ng-controller="IndexController as indexVm">
+    <md-content layout="column">
+        <header>
+            <md-toolbar class="userbar" style="padding: 0px 100px 0px 100px;">
+                <div class="md-toolbar-tools userbar" layout="row" layout-align="space-between stretch">
+                    <div layout="row" layout-align="space-between center" flex="20">
+                        <a href="#" style="font-size: 12px;">About Us</a>
+                        <a href="#" style="font-size: 12px;">FAQ</a>
+                        <a href="#" style="font-size: 12px;">Contact</a>
+                    </div>
+                    <div layout="row" layout-align="space-between center">
+                        <span>Welcome, username</span>
+                    </div>
+                </div>
+            </md-toolbar>
+            <md-toolbar class="navbar" md-whiteframe="1">
+                <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                    <div class="logo">
+                        <span>Web Store</span>
+                    </div>
+                    <div flex-offset="10" flex>
+                        <md-autocomplete md-selected-item="selectedItem" md-selected-item-change="selectedItemChange(selectedItem)" md-search-text="searchText"
+                            md-items="item in search(searchText)" md-item-text="item.username" placeholder="Search" flex>
+                            <md-item-template>
+                                <span>Search result</span>
+                            </md-item-template>
+                            <md-not-found>
+                                <span>There are no matches</span>
+                            </md-not-found>
+                            </md-autocomplete>
+                    </div>
+                    <div layout="row">
+                        <ul class="main-menu">
+                            <li>
+                                <a class="menu-item" href="#">Card</a>
+                            </li>
+                            <li>
+                                <a class="menu-item" href="#">Account</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </md-toolbar>
+        </header>
+        <main>
+            <ui-view></ui-view>
+        </main>
+    </md-content>
+
+    <script src="app/app.js"></script>
+    <script src="app/state.config.js"></script>
+    <script src="app/services/http.service.js"></script>
+    <script src="app/services/const.service.js"></script>
+
+    <script src="app/components/index/index.controller.js"></script>
+
+    <script src="app/components/products/products.controller.js"></script>
+    <script src="app/components/products/products.service.js"></script>
+</body>
+
+</html>

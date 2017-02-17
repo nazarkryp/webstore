@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('storeapp').controller('ProductsController', ProductsController);
+    angular.module('webstore').controller('ProductsController', ProductsController);
 
     ProductsController.$inject = ['ProductsService'];
 
@@ -9,19 +9,23 @@
         var self = this;
 
         self.response = {
-            data: 'Loading...'
+            data: []
         };
 
 
         function getProducts() {
-            ProductsService.getProducts().then(
-                function (response) {
-                    self.response.data = response;
-                },
-                function (error) {
-                    self.response.data = error;
-                }
-            );
+            self.response.data = [
+                {}, {}, {}, {}, {}, {}, {}, {}, {}
+            ];
+
+            // ProductsService.getProducts().then(
+            //     function (response) {
+            //         self.response.data = response;
+            //     },
+            //     function (error) {
+            //         self.response.data = error;
+            //     }
+            // );
         };
 
         this.$onInit = function () {

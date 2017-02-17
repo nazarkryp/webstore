@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="storeapp">
+<html ng-app="webstore">
 
 <head>
     <title>Store Application</title>
@@ -17,7 +17,7 @@
     <script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
 </head>
 
-<body ng-controller="IndexController as indexVm">
+<body ng-controller="IndexController as indexVm" ng-cloak>
     <md-content layout="column">
         <header>
             <md-toolbar class="userbar" style="padding: 0px 100px 0px 100px;">
@@ -33,28 +33,27 @@
                 </div>
             </md-toolbar>
             <md-toolbar class="navbar" md-whiteframe="1">
-                <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-                    <div class="logo">
+                <div class="md-toolbar-tools" layout="row" layout-align="space-between center" flex>
+                    <div class="logo" flex="25">
                         <span>Web Store</span>
                     </div>
-                    <div flex-offset="10" flex>
-                        <md-autocomplete md-selected-item="selectedItem" md-selected-item-change="selectedItemChange(selectedItem)" md-search-text="searchText"
-                            md-items="item in search(searchText)" md-item-text="item.username" placeholder="Search" flex>
-                            <md-item-template>
-                                <span>Search result</span>
-                            </md-item-template>
-                            <md-not-found>
-                                <span>There are no matches</span>
-                            </md-not-found>
-                            </md-autocomplete>
-                    </div>
-                    <div layout="row">
+
+                    <search flex="50"></search>
+
+                    <div layout="row" layout-align="end center" flex="25">
                         <ul class="main-menu">
                             <li>
-                                <a class="menu-item" href="#">Card</a>
+                                <a class="menu-item" href="#">
+                                    <span>Shopping Cart</span>
+                                    <span style="font-weight: normal; color: red;">(2)</span>
+                                    <md-icon>shopping_cart</md-icon>
+                                </a>
                             </li>
                             <li>
-                                <a class="menu-item" href="#">Account</a>
+                                <a class="menu-item" href="#">
+                                    <span>Account</span>
+                                    <md-icon>account_circle</md-icon>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -64,14 +63,25 @@
         <main>
             <ui-view></ui-view>
         </main>
+        <span flex></span>
+        <footer>
+            <div class="footer" layout="row" layout-align="center center" md-whiteframe="1">
+                <span>Copyright © 2016 KrypApp</span>
+            </div>
+        </footer>
     </md-content>
 
-    <script src="app/app.js"></script>
-    <script src="app/state.config.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.state.config.js"></script>
+
     <script src="app/services/http.service.js"></script>
     <script src="app/services/const.service.js"></script>
 
     <script src="app/components/index/index.controller.js"></script>
+
+    <script src="app/components/search/search.controller.js"></script>
+    <script src="app/components/search/search.component.js"></script>
+    <script src="app/components/search/search.service.js"></script>
 
     <script src="app/components/products/products.controller.js"></script>
     <script src="app/components/products/products.service.js"></script>

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('storeapp').controller('IndexController', IndexController);
+    angular.module('webstore').controller('IndexController', IndexController);
 
     function IndexController() {
         

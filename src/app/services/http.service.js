@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('storeapp').service('HttpService', HttpService)
+    angular.module('webstore').service('HttpService', HttpService)
 
     HttpService.$inject = ['$http'];
 

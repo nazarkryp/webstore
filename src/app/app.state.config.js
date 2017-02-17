@@ -1,4 +1,4 @@
-angular.module('storeapp')
+angular.module('webstore')
     .config(['$stateProvider', '$urlRouterProvider', '$mdIconProvider', '$httpProvider',
         function ($stateProvider, $urlRouterProvider, $mdIconProvider, $httpProvider) {
             $stateProvider

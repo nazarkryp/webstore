@@ -1,2 +1,53 @@
-<h1>Products</h1>
-<p>{{vm.response.data}}</p>
+<div layout="column" layout-align="center center" style="padding:50px 0px 50px 0px;">
+    <div layout="column" style="padding: 0px 50px 0px 50px;">
+        <div layout="row" layout-align="space-between center" style="background: white; border: 1px solid #efefef; height: 50px;padding: 0px 15px 0px 15px;"
+            flex>
+            <div>
+                <span>Sort by: </span>
+                <md-button>Popular</md-button>
+                <md-button md-colors="{background : 'deep-orange'}">Price</md-button>
+                <md-button>Newest</md-button>
+            </div>
+            <div layout="row" layout-align="center center">
+                <span>View</span>
+                <md-button class="md-icon-button">
+                    <md-icon>format_list_bulleted</md-icon>
+                </md-button>
+                <md-button class="md-icon-button">
+                    <md-icon>border_all</md-icon>
+                </md-button>
+            </div>
+    </div>
+
+    <div layout="row" style="margin-top:50px;" flex>
+        <div style="padding: 0px 10px 0px 0px;" flex="20">
+            <div style="height: 500px; background: white;border: 1px solid #efefef;">
+
+            </div>
+        </div>
+        <div flex="80">
+            <div layout="row" layout-align="space-between start" layout-wrap>
+                <div ng-repeat="product in vm.response.data" layout="column" style="width: 400px;margin: 0px 0px 50px 0px;padding: 15px; background: white;border: 1px solid #efefef;"
+                    ng-mouseenter="hover = 'md-whiteframe-24dp'" ng-mouseleave="hover = ''" ng-class="hover">
+                    <img ng-src="http://i2.rozetka.ua/goods/1479146/apple_macbook_pro_retina_15_mjlq2uaa_images_1479146217.jpg" alt="http://i2.rozetka.ua/goods/1479146/apple_macbook_pro_retina_15_mjlq2uaa_images_1479146217.jpg"
+                        style="width: 370px;height:250px;">
+                        <div layout="column" style="padding-top: 25px;">
+                            <a class="md-title link" style="font-weight: bold;">Apple MacBook Pro Retina 15" (MJLQ2UA/A)</a>
+                            <div layout="row" layout-align="space-between center" style="margin-top: 10px;">
+                                <div layout="column">
+                                    <span class="md-title" style="font-weight: bold; color: #f60;">100500$</span>
+                                </div>
+                                <md-button class="md-icon-button" style="border: 1px solid green;">
+                                    <md-icon style="color: green;">shopping_cart</md-icon>
+                                </md-button>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div layout="column" layout-align="center center " style="padding-top: 25px; " ng-if="feed.hasMoreItems ">
+    <md-button ng-click="loadMore() ">LOAD MORE</md-button>
+</div>
+</div>
+</div>
